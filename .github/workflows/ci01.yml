@@ -21,8 +21,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
       
-      - name: Maven Install (skip tests)
-        run: mvn install -DskipTests
+      - name: Maven Install (skip tests and code analysis)
+        run: mvn install -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Djavadoc.skip=true
       
       - name: PMD Code Analysis
         run: mvn pmd:pmd
